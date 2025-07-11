@@ -77,7 +77,7 @@ defineProps(['data', 'color'])
 <style scoped lang="sass">
 svg
   margin: 5px
-  width: 100px
+  width: 120px
 rect, circle
   fill: transparent
   &.active

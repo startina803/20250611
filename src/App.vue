@@ -2,6 +2,7 @@
   <v-app>
     <v-app-bar>
       <v-container class="d-flex align-center">
+        <v-img class="mr-2" max-height="40" max-width="40" src="@/assets/tomato.png" />
         <v-app-bar-title>番茄鐘</v-app-bar-title>
         <v-btn prepend-icon="mdi-home" to="/">首頁</v-btn>
         <v-btn prepend-icon="mdi-format-list-bulleted" to="/list">事項</v-btn>
@@ -57,3 +58,16 @@
 
 // const components = [CardA, CardB]
 </script>
+
+<style scoped>
+.v-btn {
+  margin: 0 10px; /* 按鈕間距 */
+}
+.v-btn:hover {
+  background-color: #dc5757; /* 滑鼠懸停時背景變灰 */
+}
+
+.v-app-bar {
+  border-bottom: 3px solid #dc5757; /* 下底線 */
+}
+</style>

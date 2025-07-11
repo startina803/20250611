@@ -9,6 +9,9 @@
         <DigitNumber v-for="(data, i) in timeLeftText" :key="i" color="white" :data="data" />
       </v-col>
       <v-col cols="12">
+        <div class="date-container">
+          <h3>日期: {{ currentDate }}</h3> <!-- 日期顯示 -->
+        </div>
         <!--
           開始按鈕停用條件:
           1. 倒數中
@@ -108,4 +111,33 @@ const timeLeftText = computed(() => {
   const s = (list.timeleft % 60).toString().padStart(2, '0')
   return m + ':' + s
 })
+
+// 添加當前日期
+const currentDate = computed(() => {
+  const now = new Date()
+  return now.toLocaleString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+    timeZoneName: 'short',
+  }).replace(' at', ',') // 調整格式，去掉 'at'，符合 "Friday, July 11, 2025, 04:15 PM CST"
+})
 </script>
+
+<style scoped>
+.v-btn {
+  margin: 0 15px; /* 按鈕間距 */
+  border: 2px solid #dc5757;
+}
+
+.date-container {
+  text-align: right; /* 將日期靠右對齊 */
+  margin-bottom: 10px; /* 與按鈕之間的間距 */
+  position: absolute;
+  top: 10px;
+}
+</style>
